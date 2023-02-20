@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="icon" type="image/x-icon" href="/styles/pokemon_7025.png">
     <script src="/src/dom.js" type="module"></script>
+    <script src="src/fetch.js" type="module"></script>
     <title>Pokemon-API</title>
 </head>
 
@@ -28,7 +29,7 @@
             </div>
         </section>
         <section class="search-page" id="search-page">
-            <div class="input-div"><input type="text" placeholder="Search for pokemon"></div>
+            <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"><button id="search-name-button">Search</button></div>
             <div class="pokemon-container">
                 <ol class="search-pokemon"></ol>
                 <ol class="my-pokemon"></ol>
