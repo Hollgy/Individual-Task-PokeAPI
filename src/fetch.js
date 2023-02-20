@@ -10,13 +10,13 @@ searchButton.addEventListener("click", function (event) {
 
     const pokemon_name = searchInput.value.trim().toLowerCase();
 
-    if (pokemon_name.length > 0 && pokelist.results.length > 0) {
+    if (pokemon_name.length > 0 && pokelist.hasOwnProperty("results")) {
         let poke = pokelist.results.filter((entry) =>
             entry.name.includes(pokemon_name)
         );
 
         let search_container = document.getElementById("search-container");
-            search_container.innerHTML = "";
+        search_container.innerHTML = "";
 
         for (let pokemon of poke) {
             let pokediv = document.createElement("div");
@@ -56,7 +56,7 @@ searchButton.addEventListener("click", function (event) {
 
 function build_cache() {
     if (!localStorage.getItem(LS_KEY)) {
-        const endp = "https://pokeapi.co/api/v2/pokemon/?limit=9";
+        const endp = "https://pokeapi.co/api/v2/pokemon/?limit=389";
         fetch(endp)
             .then((resp) => {
                 if (!resp.ok) {
