@@ -14,7 +14,9 @@ header {
     background-color: #3B4CCA;
 
 }
+
 main {}
+
 .logo {
     max-width: 65px;
     height: auto;
@@ -39,7 +41,24 @@ button {}
     padding: 0.5em;
     background-color: #3B4CCA;
     /* display: none; */
+}
+.team-page {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border: 1px black solid;
+    padding: 0.5em;
+    background-color: #3B4CCA;
+    /* display: none; */
+}
 
+.hidden {
+    display: none;
 }
 
 
