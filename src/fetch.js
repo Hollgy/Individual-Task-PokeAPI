@@ -1,3 +1,5 @@
+let searchContainer = document.getElementById("search-container")
+
 const LS_KEY = "pokemon";
 const searchInput = document
     .getElementById("search-input")
@@ -19,10 +21,11 @@ searchButton.addEventListener("click", function (event) {
         search_container.innerHTML = "";
 
         for (let pokemon of poke) {
+            let pokeContainer = document.createElement("div")
             let pokediv = document.createElement("div");
             let poke_img = document.createElement("img");
             pokediv.innerText = pokemon.name;
-
+            pokediv.classList.add("poke-card")
             if (pokemon.hasOwnProperty("front_default")) {
                 console.log("Using cached image url...");
                 poke_img.src = pokemon.front_default;
@@ -50,6 +53,8 @@ searchButton.addEventListener("click", function (event) {
             }   
             search_container.appendChild(pokediv);
             search_container.appendChild(poke_img);
+            searchContainer.appendChild(pokeContainer);
+
         }
     }
 });

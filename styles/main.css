@@ -74,12 +74,10 @@ button {}
 
 .search-pokemon,
 .my-pokemon {
-    display: inline-block;
     width: 49%;
     height: 5em;
     vertical-align: top;
     margin-right: 2%;
-    border: black 1px solid;
 }
 
 .search-pokemon {
