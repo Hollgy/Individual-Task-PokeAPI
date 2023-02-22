@@ -91,3 +91,13 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.pokeContainer {
+
+}
+.poke-card{
+    color: white;
+}
+.poke-card img {
+    width: 100px;
+    height: 100px;
+}

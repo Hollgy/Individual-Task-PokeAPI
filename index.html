@@ -15,25 +15,22 @@
 <body>
 
     <header>
-        <!-- <section class=""> -->
         <img class="logo" src="/styles/pokemon-logo-png-1446.png" alt="logotype">
-        <!-- <h2>Pokemon API</h2> -->
         <button class="button" id="team-button">View Team</button>
         <button class="button" id="search-button">Search</button>
-        <!-- </section> -->
     </header>
     <main>
 
         <section class="team-page" id="team-page">
             <div>
-                <ol class="my-pokemon"></ol>
+                <ol id="team-container" class="my-pokemon"></ol>
             </div>
         </section>
         <section class="search-page" id="search-page">
-            <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"><button id="search-name-button">Search</button></div>
+            <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"><button
+                    id="search-name-button">Search</button></div>
             <div class="pokemon-container">
                 <ol id="search-container" class="search-pokemon"></ol>
-                <ol id="team-container" class="my-pokemon"></ol>
             </div>
         </section>
 
