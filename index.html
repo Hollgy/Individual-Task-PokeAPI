@@ -13,27 +13,24 @@
 </head>
 
 <body>
-
     <header>
         <img class="logo" src="/styles/pokemon-logo-png-1446.png" alt="logotype">
-        <button class="button" id="team-button">View Team</button>
-        <button class="button" id="search-button">Search</button>
+        <section class="header-buttons">
+            <button class="button" id="team-button">View Team</button>
+            <button class="button" id="search-button">Search</button>
+        </section>
     </header>
     <main>
-
-        <section class="team-page" id="team-page">
-            <div>
-                <ol id="team-container" class="my-pokemon"></ol>
-            </div>
-        </section>
-        <section class="search-page" id="search-page">
-            <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"><button
-                    id="search-name-button">Search</button></div>
-            <div class="pokemon-container">
-                <ol id="search-container" class="search-pokemon"></ol>
-            </div>
-        </section>
-
+        <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"></div>
+            <section class="team-page" id="team-page" hidden>
+                <div>
+                    <div id="team-container" class="my-pokemon"></div>
+                </div>
+            </section>
+    
+            <section id="searched-pokemon" class="showing-searched-pokemon"> 
+                    <div id="search-container" class="search-pokemon"></div>
+            </section>
     </main>
 </body>
 

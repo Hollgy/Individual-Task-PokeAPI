@@ -1,60 +1,53 @@
+import { add_poke_to_search_result, find_image_for } from "./dom.js";
 let searchContainer = document.getElementById("search-container")
+import {LS_KEY} from "./variables.js"
 
-const LS_KEY = "pokemon";
 const searchInput = document
     .getElementById("search-input")
     .querySelector("input");
 const searchButton = document.getElementById("search-name-button");
+const search_container = document.getElementById("search-container");
 
+function clear_search_results() {
+    search_container.innerHTML = "";
+}
+
+build_cache();
 let pokelist = JSON.parse(localStorage.getItem(LS_KEY));
-searchButton.addEventListener("click", function (event) {
-    build_cache();
+searchInput.addEventListener("input", function (event) {
+    // If query has been run in the last n milliseconds -> return (exit function)
+    // if(timer.reset() < 300) {
+    //     return;
+    // }
 
     const pokemon_name = searchInput.value.trim().toLowerCase();
 
-    if (pokemon_name.length > 0 && pokelist.hasOwnProperty("results")) {
-        let poke = pokelist.results.filter((entry) =>
+    // If search box is empty
+    if(pokemon_name.length === 0) clear_search_results();
+
+    // Do not query unless at least three letters are put into the search
+    if (pokemon_name.length >= 3 && pokelist.hasOwnProperty("results")) {
+
+        // matching_pokes is a list containing every pokemon that matches our search
+        let matching_pokes = pokelist.results.filter((entry) =>
             entry.name.includes(pokemon_name)
         );
 
-        let search_container = document.getElementById("search-container");
-        search_container.innerHTML = "";
+        // Dont clear the search results 
+        if(matching_pokes.length > 0) {
+            clear_search_results();
+        }
 
-        for (let pokemon of poke) {
-            let pokeContainer = document.createElement("div")
-            let pokediv = document.createElement("div");
-            let poke_img = document.createElement("img");
-            pokediv.innerText = pokemon.name;
-            pokediv.classList.add("poke-card")
-            if (pokemon.hasOwnProperty("front_default")) {
-                console.log("Using cached image url...");
-                poke_img.src = pokemon.front_default;
-                console.log("Cached: ", pokemon.front_default);
-            } else {
-                console.log("Fetching non-cached image url...");
-                fetch(pokemon.url)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error(`Error ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then((data) => {
-                        // console.log(data.sprites.front_default);
-                        console.log("Writing to image cache...");
-                        pokemon.front_default = data.sprites.front_default;
-                        poke_img.src = data.sprites.front_default;
-                        console.log("Fetched: ", data.sprites.front_default);
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
-                localStorage.setItem(LS_KEY, JSON.stringify(pokelist));
-            }   
-            search_container.appendChild(pokediv);
-            search_container.appendChild(poke_img);
-            searchContainer.appendChild(pokeContainer);
+        find_image_for(matching_pokes);
+        localStorage.setItem(LS_KEY, JSON.stringify(pokelist));
 
+        let matching_pokes2 = pokelist.results.filter((entry) =>
+            entry.name.includes(pokemon_name)
+        );
+
+        for (let pokemon of matching_pokes2) {
+            console.log(pokemon);
+            add_poke_to_search_result(pokemon, search_container);
         }
     }
 });
@@ -81,3 +74,4 @@ function build_cache() {
     }
     // localStorage.removeItem("pokemon"); // TODO: DELETE THIS LINE
 }
+

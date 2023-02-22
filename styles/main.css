@@ -3,19 +3,18 @@
     padding: 0;
 }
 
-body {}
-
+body {
+    width: 100%;
+}
+main{}
 header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    height: 6.5%;
+    height: 10%;
     border: black 1px solid;
     background-color: #3B4CCA;
-
 }
-
-main {}
 
 .logo {
     max-width: 65px;
@@ -23,12 +22,24 @@ main {}
     margin: 0.2em;
 }
 
+.header-buttons {}
+
+.input-div {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100px;
+    margin-left:10px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 button {}
 
-
-.team-page {}
-
-.search-page {
+/* .search-page {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -40,8 +51,8 @@ button {}
     border: 1px black solid;
     padding: 0.5em;
     background-color: #3B4CCA;
-    /* display: none; */
-}
+    display: none;
+} */
 .team-page {
     display: flex;
     flex-direction: column;
@@ -54,50 +65,31 @@ button {}
     border: 1px black solid;
     padding: 0.5em;
     background-color: #3B4CCA;
-    /* display: none; */
-}
-
-.hidden {
     display: none;
 }
 
 
-
-.input-div {
-    margin-bottom: 10px;
-}
-
-.pokemon-container {
+.showing-searched-pokemon {
     display: flex;
-    justify-content: space-between;
-}
-
-.search-pokemon,
-.my-pokemon {
-    width: 49%;
-    height: 5em;
-    vertical-align: top;
-    margin-right: 2%;
+    justify-content: center;
+    width: 100%;
 }
 
 .search-pokemon {
-    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    border-radius:0.3em ;
+    background-color:#E5F1EC ;
+    width: 200px;
+    text-align: center;
 }
 
-input[type="text"] {
-    width: 90%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.search-pokemon {
 }
-.pokeContainer {
-
-}
-.poke-card{
-    color: white;
+.poke-card {
 }
 .poke-card img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
