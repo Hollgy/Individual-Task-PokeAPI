@@ -5,32 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/search.css">
-    <link rel="icon" type="image/x-icon" href="/styles/pokemon_7025.ico">
+    <link rel="icon" type="image/x-icon" href="/styles/images/pokemon_7025.ico">
     <script src="/src/dom.js" type="module"></script>
-    <script src="src/fetch.js" type="module"></script>
+    <script src="/src/fetch.js" type="module"></script>
     <title>Pokemon-API</title>
 </head>
 
 <body>
     <header>
-        <img class="logo" src="/styles/pokemon-logo-png-1446.png" alt="logotype">
+        <img class="logo" src="/styles/images/pokemon-logo-png-1421.png" alt="logotype">
         <section class="header-buttons">
             <button class="button" id="team-button">View Team</button>
-            <button class="button" id="search-button">Search</button>
+            <button class="button" id="search-button">View Available Pokemon</button>
         </section>
     </header>
     <main>
-        <div class="input-div" id="search-input"><input type="text" placeholder="Search for pokemon"></div>
-            <section class="team-page" id="team-page" hidden>
-                <div>
-                    <div id="team-container" class="my-pokemon"></div>
-                </div>
-            </section>
-    
-            <section id="searched-pokemon" class="showing-searched-pokemon"> 
-                    <div id="search-container" class="search-pokemon"></div>
-            </section>
+
+        <section id="team-pokemon" class="showing-pokemon">
+            <h3>Your Team</h3>
+            <div id="team-container" class="search-pokemon"></div>
+            <h3>Reserves</h3>
+            <div id="reserve-container" class="search-pokemon"></div>
+        </section>
+
+        <section id="searched-pokemon" class="showing-pokemon">
+            <div class="input-div" id="search-input"><input type="text" placeholder="Search"></div>
+            <div id="search-container" class="search-pokemon"></div>
+        </section>
     </main>
 </body>
 

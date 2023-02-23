@@ -26,7 +26,7 @@ searchInput.addEventListener("input", function (event) {
     if(pokemon_name.length === 0) clear_search_results();
 
     // Do not query unless at least three letters are put into the search
-    if (pokemon_name.length >= 3 && pokelist.hasOwnProperty("results")) {
+    if (pokemon_name.length >= 2 && pokelist.hasOwnProperty("results")) {
 
         // matching_pokes is a list containing every pokemon that matches our search
         let matching_pokes = pokelist.results.filter((entry) =>
