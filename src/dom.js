@@ -41,17 +41,12 @@ function pokecard_factory(pokemon, card_type) {
 
     pokecard.append(ability_container);
 
-    if(card_type === "search") {
+    if(card_type === "search" || card_type === "reserve") {
         let pokebutton = document.createElement("button");
         pokebutton.innerText = "Add To Team"
         pokebutton.classList = "addteam"
 
-        let reservebutton = document.createElement("button");
-        reservebutton.innerText = "Add To Reserve"
-        reservebutton.classList = "addreserve"
-
         pokecard.append(pokebutton);
-        pokecard.append(reservebutton);
 
         // Event för addering till Team
         pokebutton.addEventListener("click", function () {
@@ -66,14 +61,29 @@ function pokecard_factory(pokemon, card_type) {
                 messageElement.classList = "Teamfull"
                 pokecard.classList.add("FullMessage");
                 pokecard.append(messageElement);
+
+                // Timer för "Team Full i ms"
+                setTimeout(function() {
+                    pokecard.classList.remove("FullMessage");
+                    messageElement.remove();
+                }, 300);
             }
         });
+    }
+
+    if(card_type === "search") {
+        let reservebutton = document.createElement("button");
+        reservebutton.innerText = "Add To Reserve"
+        reservebutton.classList = "addreserve"
+
+        pokecard.append(reservebutton);
 
         // Event för addering till reserve
         reservebutton.addEventListener("click", function () {
             reserve_container.append(pokecard_factory(pokemon, "reserve"));
         });
     }
+
     if(card_type === "team" || card_type === "reserve") {
         let kickButton = document.createElement("button");
         kickButton.innerText = "Kick";
@@ -111,10 +121,12 @@ function pokecard_factory(pokemon, card_type) {
     return pokecard;
 }
 
+
 // Skapar element som visar pokemon"kortet"
 function add_poke_to_search_result(pokemon, search_container) {
     const pokecard = pokecard_factory(pokemon, "search");
     search_container.append(pokecard);
 }
+
 
 export { add_poke_to_search_result }
