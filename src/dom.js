@@ -86,6 +86,29 @@ function pokecard_factory(pokemon, card_type) {
 
         pokecard.append(kickButton);
     }
+    if(card_type === "team") {
+        let upButton = document.createElement("button");
+        upButton.innerText = "Up";
+        upButton.classList = "up";
+        upButton.addEventListener("click", function() {
+            let prevSibling = pokecard.previousElementSibling;
+            if (prevSibling !== null) {
+                team_container.insertBefore(pokecard, prevSibling);
+            }
+        });
+
+        let downButton = document.createElement("button");
+        downButton.innerText = "Down";
+        downButton.classList = "down";
+        downButton.addEventListener("click", function() {
+            let nextSibling = pokecard.nextElementSibling;
+            if (nextSibling !== null) {
+                team_container.insertBefore(nextSibling, pokecard);
+            }
+        });
+        pokecard.append(upButton);
+        pokecard.append(downButton);
+    } 
 
     return pokecard;
 }
