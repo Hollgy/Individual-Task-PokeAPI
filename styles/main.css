@@ -118,7 +118,7 @@ h3 {
     width: 170px;
     text-align: center;
     margin: 0.2em;
-    padding: 0.2em 0.4em;
+    padding: 0.6em 1.2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: capitalize;
 
@@ -132,7 +132,10 @@ h3 {
     /* Behålla 100% eller ha bestämd stlk på ca 170px? */
     width: 100%;
 }
-
+.Teamfull{
+    color: #ff0000;
+    font-weight: bolder;
+}
 
 
 @media screen and (min-width: 470px) {

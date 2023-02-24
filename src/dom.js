@@ -63,8 +63,6 @@ function pokecard_factory(pokemon, card_type) {
 
                 let messageElement = document.createElement("p");
                 messageElement.innerText = "Team is full";
-                messageElement.style.color = "red";
-                messageElement.style.fontWeight = "bold";
                 messageElement.classList = "Teamfull"
                 pokecard.classList.add("FullMessage");
                 pokecard.append(messageElement);
