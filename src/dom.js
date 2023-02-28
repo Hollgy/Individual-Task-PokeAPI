@@ -22,7 +22,7 @@ function togglePage(page_id) {
 searchButton.addEventListener("click", () => {togglePage("search")});
 teamButton.addEventListener("click", () => {togglePage("team")});
 
-function pokecard_factory(pokemon, card_type) {
+function pokecard_factory(pokemon, card_type, in_reserve=false) {
     let pokecard = document.createElement("div");
     pokecard.innerText = pokemon.name;
     pokecard.classList.add("poke-card")
@@ -52,16 +52,21 @@ function pokecard_factory(pokemon, card_type) {
         pokebutton.addEventListener("click", function () {
             if(team_container.children.length < 3) {
                 team_container.append(pokecard_factory(pokemon, "team"));
+        
+                // Remove from reserve container if in there
+                if (in_reserve) {
+                    pokecard.remove();
+                }
             }
             else {
                 if(pokecard.classList.contains("FullMessage")) { return; }
-
+        
                 let messageElement = document.createElement("p");
                 messageElement.innerText = "Team is full";
                 messageElement.classList = "Teamfull"
                 pokecard.classList.add("FullMessage");
                 pokecard.append(messageElement);
-
+        
                 // Timer för "Team Full i ms"
                 setTimeout(function() {
                     pokecard.classList.remove("FullMessage");
@@ -69,6 +74,7 @@ function pokecard_factory(pokemon, card_type) {
                 }, 300);
             }
         });
+        
     }
 
     if(card_type === "search") {
@@ -80,7 +86,7 @@ function pokecard_factory(pokemon, card_type) {
 
         // Event för addering till reserve
         reservebutton.addEventListener("click", function () {
-            reserve_container.append(pokecard_factory(pokemon, "reserve"));
+            reserve_container.append(pokecard_factory(pokemon, "reserve", true));
         });
     }
 
@@ -120,6 +126,7 @@ function pokecard_factory(pokemon, card_type) {
 
     return pokecard;
 }
+
 
 
 // Skapar element som visar pokemon"kortet"
