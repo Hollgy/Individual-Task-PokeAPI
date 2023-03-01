@@ -24,7 +24,12 @@ teamButton.addEventListener("click", () => {togglePage("team")});
 
 function pokecard_factory(pokemon, card_type, in_reserve=false) {
     let pokecard = document.createElement("div");
-    pokecard.innerText = pokemon.name;
+
+    let pokename = document.createElement("div");
+    pokename.innerText = pokemon.name;
+    pokecard.append(pokename);
+    // pokecard.innerText = pokemon.name;
+
     pokecard.classList.add("poke-card")
 
     let poke_img = document.createElement("img");
@@ -100,6 +105,7 @@ function pokecard_factory(pokemon, card_type, in_reserve=false) {
 
         pokecard.append(kickButton);
     }
+
     if(card_type === "team") {
         let upButton = document.createElement("button");
         upButton.innerText = "Up";
@@ -122,7 +128,25 @@ function pokecard_factory(pokemon, card_type, in_reserve=false) {
         });
         pokecard.append(upButton);
         pokecard.append(downButton);
+
+        let renameInput = document.createElement("input");
+        renameInput.type = "text";
+
+        let renameSubmit = document.createElement("button");
+        renameSubmit.classList = "renameButton"
+        renameSubmit.innerText = "Rename"
+        renameSubmit.addEventListener("click", () => {
+            if(renameInput.value != "") {
+                pokename.innerText = renameInput.value;
+            }
+            renameInput.value = "";
+        });
+
+        pokecard.append(renameInput);
+        pokecard.append(renameSubmit);
     } 
+        
+
 
     return pokecard;
 }
