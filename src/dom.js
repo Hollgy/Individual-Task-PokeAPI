@@ -76,7 +76,7 @@ function pokecard_factory(pokemon, card_type, in_reserve = false) {
                 setTimeout(function () {
                     pokecard.classList.remove("FullMessage");
                     messageElement.remove();
-                }, 300);
+                }, 1000);
             }
         });
 
