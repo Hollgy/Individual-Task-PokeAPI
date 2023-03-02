@@ -30,36 +30,49 @@ header {
     margin: 0.2em;
 }
 
+/* Inputs------------------START */
 
 .input-div {
     display: flex;
     justify-content: center;
+    width: 100%;
     margin-top: 2em;
     margin-bottom: 2em;
-    width: 100%;
 }
-
-input[type="text"] {
-    width: 100px;
+.search-input {
+    padding: 3px;
+    width: 120px;
     box-sizing: border-box;
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 0.3em;
 }
+.rename-input{
+    padding: 3px;
+    width:100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    
+}
+/* Inputs------------------STOP */
 
+/* Buttons ----------------START */
 button {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 0.25em 0.5em;
     box-shadow: 0.4em 0.8em 0.8em rgba(0, 0, 0, 0.1);
     border-radius: 0.3em;
 }
 
 button:hover {
-    border: 3px solid #ffffff;
+    border: 2px solid #ffffff;
 }
 
 .addteam {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
     background-color: #10B010;
     color: white;
 }
@@ -73,6 +86,32 @@ button:hover {
     background-color: red;
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+.up {
+    width: 25px;
+    height: 25px;
+    background: url('/styles/images/arrow-up-line.png') no-repeat center;
+    background-size: cover;
+    border: none;
+    box-shadow: none;
+}
+.down {
+    width: 25px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    background: url('/styles/images/arrow-down-line.png') no-repeat center;
+    background-size: cover;
+    border: none;
+    box-shadow: none;
+
+
+}
+/* Buttons -------------------STOP */
 h3 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -114,12 +153,13 @@ h3 {
 .poke-card {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
     border: 5px solid green;
     border-radius: 0.4em 0.8em;
     background-color: #E5F1EC;
     width: 170px;
-    text-align: center;
-    margin: 0.2em;
+    margin: 0.3em;
     padding: 0.6em 1.2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: capitalize;
@@ -140,7 +180,7 @@ h3 {
 }
 
 
-@media screen and (min-width: 470px) {
+@media (min-width: 392px) {
     .logo {
         max-width: 250px;
     }
@@ -148,4 +188,22 @@ h3 {
     header {
         margin-bottom: 5em;
     }
+    .up {
+        background: url('/styles/images/arrow-left-line.png') no-repeat center;
+        background-size: cover;
+        box-shadow: none;
+
+    
+    }
+    .down {
+        background: url('/styles/images/arrow-right-line.png') no-repeat center;
+        background-size: cover;
+        box-shadow: none;
+
+    
+    }
+    /* main {
+        display: flex;
+
+    } */
 }
