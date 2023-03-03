@@ -41,6 +41,7 @@ function pokecard_factory(pokemon, card_type, in_reserve = false) {
     for (const ability of pokemon.abilities) {
         const ability_div = document.createElement("div");
         ability_div.innerText += ability.ability.name + '.';
+        ability_div.classList = "ability-div"
         ability_container.appendChild(ability_div);
     }
 

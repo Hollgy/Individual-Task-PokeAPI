@@ -161,7 +161,8 @@ h3 {
     border: 5px solid green;
     border-radius: 0.5em;
     background-color: #E5F1EC;
-    width: 170px;
+    width: 190px;
+    height: 330px;
     margin: 0.3em;
     padding: 0.6em 1.2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -185,9 +186,12 @@ h3 {
     color: #ff0000;
     font-weight: bolder;
 }
+.ability-div {
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-
-@media (min-width: 392px) {
+@media (min-width: 432px) {
     .logo {
         max-width: 250px;
     }
