@@ -142,6 +142,7 @@ function pokecard_factory(pokemon, card_type, in_reserve = false) {
         let renameInput = document.createElement("input");
         renameInput.type = "text";
         renameInput.classList = "rename-input";
+        renameInput.maxLength = 12
       
         let renameSubmit = document.createElement("button");
         renameSubmit.classList = "renameButton";
