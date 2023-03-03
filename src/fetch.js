@@ -90,7 +90,7 @@ async function build_cache() {
     // Maybe check for a smaller key, like "has_cache", 
     // so that we dont read several megabytes each time we check.
     if (!localStorage.getItem(LS_KEY)) {
-        const endp = "https://pokeapi.co/api/v2/pokemon/?limit=389";
+        const endp = "https://pokeapi.co/api/v2/pokemon/?limit=1000";
         const response = await fetch(endp);
         if (response.ok) {
             const data = await response.json();
