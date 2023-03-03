@@ -7,6 +7,7 @@ await build_cache();
 // Globals
 const search_container = document.getElementById("search-container");
 const search_field = document.getElementById("search-input").querySelector("input")
+const landingImage = document.querySelector(".landing-image")
 
 // Global object containing the pokemon list, this should be cached on mutation
 let pokelist = JSON.parse(localStorage.getItem(LS_KEY));
@@ -15,6 +16,9 @@ function clear_search_results() {
     search_container.innerHTML = "";
 }
 
+function removeLandingImage() {
+    landingImage.style.display = "none"
+}
 // Gets the image url for the pokemon and adds it to the pokemon object in the hot cache
 // Some other routine will need to write cache to localStorage
 /**
@@ -40,6 +44,7 @@ async function find_image_for(pokemon) {
 // Add the event listener to the search input
 search_field.addEventListener("input", async () => {
     let poke_name_string = search_field.value;
+    if (poke_name_string.length > 0) { removeLandingImage();  }
     if (poke_name_string.length < 3) { clear_search_results(); return; }
     let poke_result_list = await query_pokes(poke_name_string);
 
@@ -54,6 +59,7 @@ search_field.addEventListener("input", async () => {
         }
         add_poke_to_search_result(pokemon, search_container);
     }
+
 });
 
 /**

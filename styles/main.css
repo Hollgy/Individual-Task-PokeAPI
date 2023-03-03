@@ -12,6 +12,9 @@ body {
 
 main {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -174,6 +177,10 @@ h3 {
     /* Behålla 100% eller ha bestämd stlk på ca 170px? */
     width: 100%;
 }
+
+.landing-image{
+    width: 250px;
+}
 .Teamfull{
     color: #ff0000;
     font-weight: bolder;
@@ -202,8 +209,8 @@ h3 {
 
     
     }
-    /* main {
-        display: flex;
 
-    } */
+    .landing-image{
+        width: 350px;
+    }
 }
